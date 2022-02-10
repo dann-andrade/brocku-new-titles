@@ -1,0 +1,4 @@
+config.py
+addcovers.py
+*.json
+/__pycache__
