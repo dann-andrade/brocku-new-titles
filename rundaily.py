@@ -15,7 +15,7 @@ fpath = 'logs.txt'
 if path.exists(fpath):
     sys.stdout = open('logs.txt', 'a')
 else: 
-    open('/app/logs.txt', 'x')
+    open('logs.txt', 'x')
     sys.stdout = open('logs.txt', 'a')
 
 print('----------------------------------------------------------------------------------------------')
