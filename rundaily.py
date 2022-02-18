@@ -2,6 +2,7 @@ import getnewtitles
 import sys
 from datetime import date
 import time
+from os import path
 
 #-----------------------------------------------------------------------------------------------
 #
@@ -9,7 +10,13 @@ import time
 #
 #-----------------------------------------------------------------------------------------------
 
-sys.stdout = open('/app/logs.txt', 'a')
+fpath = '/app/logs.txt'
+
+if path.exists(fpath):
+    sys.stdout = open('/app/logs.txt', 'a')
+else: 
+    open('/app/logs.txt', 'x')
+    sys.stdout = open('/app/logs.txt', 'a')
 
 print('----------------------------------------------------------------------------------------------')
 print('Script Initiated - ' + date.today().strftime('%d/%m/%Y') + ' at ' + time.strftime('%H:%M:%S', time.localtime()))
