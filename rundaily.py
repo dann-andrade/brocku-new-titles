@@ -10,23 +10,23 @@ from os import path
 #
 #-----------------------------------------------------------------------------------------------
 
-fpath = '/app/logs.txt'
+fpath = 'logs.txt'
 
 if path.exists(fpath):
-    sys.stdout = open('/app/logs.txt', 'a')
+    sys.stdout = open('logs.txt', 'a')
 else: 
     open('/app/logs.txt', 'x')
-    sys.stdout = open('/app/logs.txt', 'a')
+    sys.stdout = open('logs.txt', 'a')
 
 print('----------------------------------------------------------------------------------------------')
 print('Script Initiated - ' + date.today().strftime('%d/%m/%Y') + ' at ' + time.strftime('%H:%M:%S', time.localtime()))
 
 # #Physical
-physicalItems = getnewtitles.retrieve('physical', '/app/ptitles.json')
+physicalItems = getnewtitles.retrieve('physical', 'ptitles.json')
 getnewtitles.update('physical', physicalItems)
 
 # #Electronic
-electronicItems = getnewtitles.retrieve('electronic', '/app/etitles.json')
+electronicItems = getnewtitles.retrieve('electronic', 'etitles.json')
 getnewtitles.update('electronic', electronicItems)
 
 print('Daily Update Successful!\n')
