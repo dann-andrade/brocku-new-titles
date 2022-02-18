@@ -5,6 +5,7 @@ import xml.etree.ElementTree as ET
 import json
 import linktools
 import config
+from os import path
 
 #-----------------------------------------------------------------------------------------------
 #
@@ -246,7 +247,7 @@ def updateCollections(op, colName, colID, setID, jobName):
 #
 #-----------------------------------------------------------------------------------------------
 
-def retrieve(type, path):
+def retrieve(type, fpath):
 
     print('Retrieving ' + type +  ' report...', end='')
 
@@ -263,8 +264,14 @@ def retrieve(type, path):
     newItems =  getReport(reportLink, '')
     
     #Load current data (current items in collection)
-    cFile = open(path)
-    cData = json.load(cFile)
+    if path.exists(fpath):
+        cFile = open(fpath)
+        cData = json.load(cFile)
+        cFile.close()
+    #If no existing file exists use empty database
+    else:
+        cData = {}
+        cData['titles'] = []
 
     #Compare lists. Returns array:
     # 0 - New items (exclusive to new list)
@@ -272,11 +279,8 @@ def retrieve(type, path):
     # 2 - Maintained old list (new items + items appearing in both lists)
     newTitles =  compItems(cData, newItems)
 
-    #Close files
-    cFile.close()
-
     #Write current list to old data file for next comparison
-    cFile = open(path, 'w')
+    cFile = open(fpath, 'w')
     cFile.write(json.dumps(newTitles[2], indent=4, sort_keys=True))
     cFile.close()
 

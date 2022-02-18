@@ -1,3 +1,4 @@
 addcovers.py
 *.json
 /__pycache__
+logs.txt
