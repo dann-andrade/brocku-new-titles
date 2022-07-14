@@ -10,10 +10,10 @@ baselink = 'https://api-na.hosted.exlibrisgroup.com/almaws/v1'
 #API Keys
 
 #Alma
-almaKey = '&apikey='
+almaKey = '&apikey=l8xxb640647a9ef5430dbbca99d8cfbb901b'
 
 #Google
-googKey = ''
+googKey = 'AIzaSyAxWfixFPu_aEhxHRAzXTO7E2bNjxQ7bRg'
 
 #Analytics Report Path
 reportPath = '/analytics/reports?path=%2Fshared%2FBrock+University+01OCUL_BU%2FReports%2FDanAndrade%2FNewBooksList%2F'
@@ -37,7 +37,7 @@ physicalCollection = 'New Titles in Print'
 electronicCollection = 'New Ebook Titles'
 
 #Job Names
-addPhysicalCollectionJob = 'Add Titles to Collection - via API - New Electronic Titles (Add)'
-removePhysicalCollectionJob = 'Remove Titles from Collection - via API - New Electronic Titles (Remove)'
+addPhysicalCollectionJob = 'Add Titles to Collection - via API - New Physical Titles (Add)'
+removePhysicalCollectionJob = 'Remove Titles from Collection - via API - New Physical Titles (Remove)'
 addElectronicCollectionJob = 'Add Titles to Collection - via API - New Electronic Titles (Add)'
 removeElectronicCollectionJob = 'Remove Titles from Collection - via API - New Electronic Titles (Remove)'
