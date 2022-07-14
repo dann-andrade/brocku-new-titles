@@ -10,10 +10,10 @@ baselink = 'https://api-na.hosted.exlibrisgroup.com/almaws/v1'
 #API Keys
 
 #Alma
-almaKey = '&apikey=l8xxb640647a9ef5430dbbca99d8cfbb901b'
+almaKey = '&apikey='
 
 #Google
-googKey = 'AIzaSyAxWfixFPu_aEhxHRAzXTO7E2bNjxQ7bRg'
+googKey = ''
 
 #Analytics Report Path
 reportPath = '/analytics/reports?path=%2Fshared%2FBrock+University+01OCUL_BU%2FReports%2FDanAndrade%2FNewBooksList%2F'
