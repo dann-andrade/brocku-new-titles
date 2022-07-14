@@ -317,16 +317,18 @@ def update(type, newtitles):
         addJob = config.addElectronicCollectionJob
         removeJob = config.removeElectronicCollectionJob
 
-    #Assemble query strings from new and aged out lists
-    addQuery =  getQuery(newtitles[0])
-    removeQuery =  getQuery(newtitles[1])
+    #Assemble query strings, add items to sets, and update Collections
 
-    #Add items to sets 
-    addToSet(addQuery, addSet)
-    addToSet(removeQuery, removeSet)
-    
-    #Update Collections
-    updateCollections('add', collectionName, collectionID, addSet, addJob)
-    updateCollections('remove', collectionName, collectionID, removeSet, removeJob)
+    #Skip if no items to add
+    if len(newtitles[0]['titles']) != 0:
+       addQuery =  getQuery(newtitles[0])
+       addToSet(addQuery, addSet)
+       updateCollections('add', collectionName, collectionID, addSet, addJob)
+
+    #Skip if no items to remove
+    if len(newtitles[1]['titles']) != 0:
+        removeQuery =  getQuery(newtitles[1])
+        addToSet(removeQuery, removeSet)
+        updateCollections('remove', collectionName, collectionID, removeSet, removeJob)
 
     print('Completed!')
