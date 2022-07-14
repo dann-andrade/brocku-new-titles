@@ -10,13 +10,13 @@ from os import path
 #
 #-----------------------------------------------------------------------------------------------
 
-fpath = 'logs.txt'
+fpath = '/app/logs.txt'
 
 if path.exists(fpath):
-    sys.stdout = open('logs.txt', 'a')
+    sys.stdout = open('/app/logs.txt', 'a')
 else: 
-    open('logs.txt', 'x')
-    sys.stdout = open('logs.txt', 'a')
+    open('/app/logs.txt', 'x')
+    sys.stdout = open('/app/logs.txt', 'a')
 
 print('----------------------------------------------------------------------------------------------')
 print('Script Initiated - ' + date.today().strftime('%d/%m/%Y') + ' at ' + time.strftime('%H:%M:%S', time.localtime()))
