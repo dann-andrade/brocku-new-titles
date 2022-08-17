@@ -45,7 +45,7 @@ def checkCovers(filename):
                 ptitle['isbn'] = bestISBN
                 goodtitles.append(ptitle)
                 count += 1
-                if count >= 500:
+                if count >= 5:
                     break 
 
             
@@ -53,6 +53,11 @@ def checkCovers(filename):
 checkCovers('ptitles.json')
 checkCovers('etitles.json')
 
-with open('gtitles.json', 'w') as gfile:
+with open('/app/logs.txt', 'a') as logfile:
+    logfile.write('Processing title covers....Complete!\n')
+    logfile.write(str(len(goodtitles)) + ' titles with cover images in data file\n')
+    logfile.write('Carousel Update Complete!\n\n')
+
+with open('/var/www/localhost/htdocs/test.json', 'w') as gfile:
     gfile.write(json.dumps(goodtitles, indent=4, sort_keys=True))
 
