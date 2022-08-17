@@ -1,5 +1,3 @@
-addcovers.py
-config.py
 *.json
 /__pycache__
 *.txt
