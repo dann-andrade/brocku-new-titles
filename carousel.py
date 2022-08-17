@@ -45,7 +45,7 @@ def checkCovers(filename):
                 ptitle['isbn'] = bestISBN
                 goodtitles.append(ptitle)
                 count += 1
-                if count >= 5:
+                if count >= 500:
                     break 
 
             
