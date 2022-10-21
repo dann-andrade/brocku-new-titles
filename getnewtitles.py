@@ -24,8 +24,11 @@ def getReport(link, dest):
     #Resumption loop
     while not isFinished == 'true':
 
-        #Retrieve report data
-        resp = requests.get(link)
+        try: 
+            #Retrieve report data
+            resp = requests.get(link)
+        except requests.exceptions.RequestException as e:
+            raise SystemExit(e)
 
         #Parse data into tree
         root = ET.fromstring(resp.text)
