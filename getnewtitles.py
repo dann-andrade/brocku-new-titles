@@ -39,9 +39,13 @@ def getReport(link, dest):
             item = {}
 
             mmsid = child.find('{urn:schemas-microsoft-com:xml-analysis:rowset}Column1').text
+            title = child.find('{urn:schemas-microsoft-com:xml-analysis:rowset}Column2').text
             isbn = child.find('{urn:schemas-microsoft-com:xml-analysis:rowset}Column3').text
 
+            t_title = title.rstrip(' /')
+
             item['mmsid'] = mmsid
+            item['title'] = t_title
             item['isbn'] = isbn
 
             newbooks.append(item)
@@ -60,10 +64,9 @@ def getReport(link, dest):
         isFinished = root.find('.//IsFinished').text
     
     #Write data to file
-    if not dest == '':
-        file = open(dest, 'w')
-        file.write(json.dumps(db, indent=4, sort_keys=True))
-        file.close 
+    # with open ('resp.txt', 'w') as file:
+    #     file.write(resp.text)
+ 
 
     return db
     
