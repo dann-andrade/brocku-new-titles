@@ -16,18 +16,32 @@ from os import path
 #
 #-----------------------------------------------------------------------------------------------
 
+#-----------------------------------------------------------------------------------------------
+#
+#             Init new data array and load old array
+#
+#-----------------------------------------------------------------------------------------------
 goodtitles = []
+oldtitles = []
 
+if path.exists('/var/www/localhost/htdocs/gtitles.json'):
+    with open('/var/www/localhost/htdocs/gtitles.json') as file:
+        oldtitles = json.load(file)
+
+
+#-----------------------------------------------------------------------------------------------
+#
+#             Iterate though datafile and add titles with covers to result list
+#
+#-----------------------------------------------------------------------------------------------
 def checkCovers(filename):
 
-    count = 0
-
-    with open(filename) as pfile:
-        ptitles = json.load(pfile)
+    with open(filename) as nfile:
+        newtitles = json.load(nfile)
         
-        for ptitle in ptitles['titles']:
+        for title in newtitles['titles']:
             
-            isbns = ptitle['isbn'].split(';')
+            isbns = title['isbn'].split(';')
             minSize = 86
 
             for isbn in isbns:
@@ -42,22 +56,51 @@ def checkCovers(filename):
                         minSize = size
 
             if minSize > 86:
-                ptitle['isbn'] = bestISBN
-                goodtitles.append(ptitle)
-                count += 1
-                if count >= 200:
-                    break 
+                title['isbn'] = bestISBN
+                goodtitles.append(title)
 
+            if len(goodtitles) == 200:
+                break 
+
+
+#-----------------------------------------------------------------------------------------------
+#
+#             If result list is too small, add items from old list 
+#
+#-----------------------------------------------------------------------------------------------
+
+def minSize():
+    if len(goodtitles) < 50:
+
+        for title in oldtitles:
             
+            goodtitles.append(title)
 
-checkCovers('ptitles.json')
-checkCovers('etitles.json')
+            if len(goodtitles) == 50:
+                break 
 
-with open('/app/logs.txt', 'a') as logfile:
-    logfile.write('Processing title covers....Complete!\n')
-    logfile.write(str(len(goodtitles)) + ' titles with cover images in data file\n')
-    logfile.write('Carousel Update Complete!\n\n')
 
-with open('/var/www/localhost/htdocs/gtitles.json', 'w') as gfile:
-    gfile.write(goodtitles)
+#-----------------------------------------------------------------------------------------------
+#
+#             Main
+#
+#-----------------------------------------------------------------------------------------------
+
+if __name__ == "__main__":  
+
+    if path.exists('ptitles.json'):
+        checkCovers('ptitles.json')
+
+    if path.exists('etitles.json'):    
+        checkCovers('etitles.json')
+
+    minSize()
+
+    with open('/app/logs.txt', 'a') as logfile:
+        logfile.write('Processing title covers....Complete!\n')
+        logfile.write(str(len(goodtitles)) + ' titles with cover images in data file\n')
+        logfile.write('Carousel Update Complete!\n\n')
+
+    with open('/var/www/localhost/htdocs/gtitles.json', 'w') as gfile:
+        gfile.write(json.dumps(goodtitles))
 
