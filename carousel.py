@@ -59,5 +59,5 @@ with open('/app/logs.txt', 'a') as logfile:
     logfile.write('Carousel Update Complete!\n\n')
 
 with open('/var/www/localhost/htdocs/gtitles.json', 'w') as gfile:
-    gfile.write(json.dumps(goodtitles, indent=4, sort_keys=True))
+    gfile.write(goodtitles)
 
