@@ -11,22 +11,24 @@ from os import path
 #-----------------------------------------------------------------------------------------------
 
 fpath = '/app/data/logs.txt'
+ppath = '/app/data/ptitles.json'
+epath = '/app/data/etitles.json'
 
 if path.exists(fpath):
-    sys.stdout = open('/app/logs.txt', 'a')
+    sys.stdout = open(fpath, 'a')
 else: 
-    open('/app/data/logs.txt', 'x')
-    sys.stdout = open('/app/logs.txt', 'a')
+    open(fpath, 'x')
+    sys.stdout = open(fpath, 'a')
 
 print('----------------------------------------------------------------------------------------------')
 print('Script Initiated - ' + date.today().strftime('%d/%m/%Y') + ' at ' + time.strftime('%H:%M:%S', time.localtime()))
 
 # #Physical
-physicalItems = getnewtitles.retrieve('physical', '/app/data/ptitles.json')
+physicalItems = getnewtitles.retrieve('physical', ppath)
 getnewtitles.update('physical', physicalItems)
 
 # #Electronic
-electronicItems = getnewtitles.retrieve('electronic', '/app/data/etitles.json')
+electronicItems = getnewtitles.retrieve('electronic', epath)
 getnewtitles.update('electronic', electronicItems)
 
 print('Daily Update Successful!\n')
