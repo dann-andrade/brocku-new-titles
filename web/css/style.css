@@ -1,0 +1,99 @@
+body {
+  font-weight: 100;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, p, input {
+  font-weight: 100;
+}
+
+.maincard {
+  width: 600px;
+}
+
+.container {
+  display: flex;
+}
+
+.bg-secondary {
+  background-color: rgb(0, 0, 0) !important;
+}
+#bu-new-titles{
+  background-color: rgb(255, 255, 255) !important;
+}
+#bu-outer-carousel {
+  height: 230px;
+  padding: 0px;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  width: 90%;
+}
+#bu-inner-carousel {
+  height: 230px;
+  width: 3000px;
+}
+#bu-carousel-items {
+  display:inline-block;
+}
+.bu-book {
+  float: left;
+  padding: 15px 2px 15px 2px;
+}
+.bu-book-img:hover {
+  scale: 110%;
+  rotate: 1deg;
+  box-shadow: 0px 0px 5px black;
+}
+
+/* Scroll Buttons */
+#bu-scrollbtn-left {
+  padding: 30px 0 0 7px;
+  position: absolute;
+  z-index: 1;
+  height: 200px;
+  border-radius: 0;
+  max-width: 60px
+}
+#bu-scrollbtn-right {
+  padding: 30px 0 0 0;
+  position: absolute;
+  z-index: 1;
+  right: 0px;
+  height: 200px;
+  border-radius: 0;
+  max-width: 60px;
+}
+.bu-scrollbtn {
+  padding: 0px;
+  background-color: rgba(0, 0, 0, 0.144)
+}
+.bu-scrollbtn:hover {
+  background-color: rgba(41, 41, 41, 0.473);
+}
+.bu-scrollbtn:active {
+  scale: 98%;
+}
+.bu-scrollbtn:focus {
+  box-shadow: none;
+}
+.bu-nt-btn-img {
+  height: 50px;
+}
+
+/*Book Title Hover*/
+.bu-book-title {
+  position: absolute;
+  display: inline-block;
+  background-color: rgb(41, 41, 41);
+  color: white;
+  padding: 5px 10px 5px 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: fit-content;
+  top: 230px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px black;
+}
+
+
+
