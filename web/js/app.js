@@ -21,7 +21,7 @@
 			$ctrl.display = [];
 			$ctrl.dataLoaded = false;
 
-			$http.get('http://rtod.library.brocku.ca:8080/gtitles.json').then(
+			$http.get('http://rtod.library.brocku.ca:8080/data/gtitles.json').then(
 				function success(response) {
 					$ctrl.newbooks = response.data;
 					$ctrl.dataLoaded = true;
