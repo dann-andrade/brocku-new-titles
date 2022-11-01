@@ -24,8 +24,8 @@ from os import path
 goodtitles = []
 oldtitles = []
 
-if path.exists('/var/www/localhost/htdocs/gtitles.json'):
-    with open('/var/www/localhost/htdocs/gtitles.json') as file:
+if path.exists('/app/data/gtitles.json'):
+    with open('/app/data/gtitles.json') as file:
         oldtitles = json.load(file)
 
 
@@ -88,19 +88,19 @@ def minSize():
 
 if __name__ == "__main__":  
 
-    if path.exists('ptitles.json'):
-        checkCovers('ptitles.json')
+    if path.exists('/app/data/ptitles.json'):
+        checkCovers('/app/data/ptitles.json')
 
-    if path.exists('etitles.json'):    
-        checkCovers('etitles.json')
+    if path.exists('/app/data/etitles.json'):    
+        checkCovers('/app/data/etitles.json')
 
     minSize()
 
-    with open('/app/logs.txt', 'a') as logfile:
+    with open('/app/data/logs.txt', 'a') as logfile:
         logfile.write('Processing title covers....Complete!\n')
         logfile.write(str(len(goodtitles)) + ' titles with cover images in data file\n')
         logfile.write('Carousel Update Complete!\n\n')
 
-    with open('/var/www/localhost/htdocs/gtitles.json', 'w') as gfile:
+    with open('/app/data/gtitles.json', 'w') as gfile:
         gfile.write(json.dumps(goodtitles))
 

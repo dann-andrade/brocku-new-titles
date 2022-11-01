@@ -6,5 +6,5 @@ import getnewtitles
 #
 #-----------------------------------------------------------------------------------------------
 
-getnewtitles.retrieve('physical', 'ptitles.json')
-getnewtitles.retrieve('electronic', 'etitles.json')
+getnewtitles.retrieve('physical', '/app/data/ptitles.json')
+getnewtitles.retrieve('electronic', '/app/data/etitles.json')

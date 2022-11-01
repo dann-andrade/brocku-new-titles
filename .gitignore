@@ -5,3 +5,4 @@ config.py
 lrundaily.py
 dev.py
 *.sh
+**/data
