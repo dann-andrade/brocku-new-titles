@@ -6,3 +6,5 @@ lrundaily.py
 dev.py
 *.sh
 **/data
+**/node_modules
+server.js
