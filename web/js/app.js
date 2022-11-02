@@ -29,7 +29,7 @@
 						findWidth();
 					},
 					function error(response) {
-						console.log(response)
+						console.log(response);
 					});
 
 
@@ -80,9 +80,7 @@
 				};
 
 				addEventListener('resize', (Event) => {
-
 					findWidth();
-
 				});
 
 			});
