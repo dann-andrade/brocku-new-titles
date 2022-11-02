@@ -16,10 +16,10 @@ h1, h2, h3, h4, h5, h6, p, input {
 }
 
 .bg-secondary {
-  background-color: rgb(0, 0, 0) !important;
+  background-color: transparent !important;
 }
 #bu-new-titles{
-  background-color: rgb(255, 255, 255) !important;
+  background-color: transparent !important;
 }
 #bu-outer-carousel {
   height: 230px;
