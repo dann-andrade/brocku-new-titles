@@ -16,6 +16,7 @@
 				var loadCursor = 0;
 				var dispCursor = 0;
 				var screenWidth = 0;
+				var scrollWidth = 0;
 
 				$ctrl.newbooks = [];
 				$ctrl.display = [];
@@ -53,6 +54,8 @@
 
 				function findWidth() {
 					screenWidth = scrollCont.offsetWidth;
+					scrollWidth = (screenWidth > 500) ? 500 : screenWidth;
+					console.log(scrollWidth);
 				}
 
 				function setWidth() {
@@ -60,7 +63,7 @@
 				}
 
 				$ctrl.scrollLeft = function () {
-					scrollCont.scrollLeft -= 500;
+					scrollCont.scrollLeft -= scrollWidth;
 				};
 
 				$ctrl.scrollRight = function () {
@@ -75,7 +78,7 @@
 
 					};
 
-					scrollCont.scrollLeft += 500;
+					scrollCont.scrollLeft += scrollWidth;
 
 				};
 
