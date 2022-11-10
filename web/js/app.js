@@ -5,11 +5,11 @@
 	angular
 		.module('newTitles', [])
 		.controller('MainController',
-			function ($http) {
+			function ($http, $scope) {
 
 				const $ctrl = this;
-				const scrollCont = document.getElementById('bu-outer-carousel');
-				const innerCar = document.getElementById('bu-inner-carousel');
+				var scrollCont = document.getElementById('bu-outer-carousel');
+				var innerCar = document.getElementById('bu-inner-carousel');
 
 				// Set scroll position to zero on component initilalization
 				scrollCont.scrollLeft = 0;
@@ -18,10 +18,15 @@
 				var dispCursor = 0;
 				var screenWidth = 0;
 				var scrollWidth = 0;
+				
+				var mouseDown = false;
+				var startX = 0;
+				var endX = 0;
 
 				$ctrl.newbooks = [];
 				$ctrl.display = [];
 				$ctrl.dataLoaded = false;
+				$ctrl.showCarousel = true;
 
 				// Retrieve daily data, load 20 books and calculate width
 				$http.get('http://rtod.library.brocku.ca:8080/data/gtitles.json').then(
@@ -51,13 +56,14 @@
 
 				// Retrieve viewport width, dynamically sets scroll distance
 				function findWidth() {
-					screenWidth = scrollCont.offsetWidth;
+					screenWidth = document.body.offsetWidth;
 					scrollWidth = (screenWidth > 500) ? 500 : screenWidth;
+					$ctrl.showCarousel = (screenWidth >= 700) ? true : false;
 				};
 
 				// Adds space to inner carousel container to make room for new items
-				function setWidth() {
-					innerCar.style.width = String(innerCar.offsetWidth + 1000) + "px";
+				function setWidth(w) {
+					innerCar.style.width = String(innerCar.offsetWidth + w) + "px";
 				};
 
 				// Scrolls left
@@ -70,7 +76,7 @@
 					if (scrollCont.scrollLeft + screenWidth >= innerCar.offsetWidth - 1000) {
 						loadBooks(8);
 						setTimeout(() => {
-							setWidth();
+							setWidth(1000);
 						}, 0);
 					};
 					scrollCont.scrollLeft += scrollWidth;
@@ -80,7 +86,57 @@
       	//Calls the find width function to update the width
 				addEventListener('resize', (Event) => {
 					findWidth();
+					$scope.$apply();
 				});
+
+				$ctrl.mouseDown = function (e) {
+					mouseDown = true;
+					startX = e.clientX;
+					e.currentTarget.style.cursor = "grabbing";
+					if (scrollCont.scrollLeft + screenWidth >= innerCar.offsetWidth - 2000) {
+						loadBooks(16);
+						setTimeout(() => {
+							setWidth(2000);
+							$scope.$apply();
+						}, 0);
+					};
+				};
+
+				$ctrl.mouseEnter = function(e) {
+					e.currentTarget.style.cursor = "grab"
+				};
+
+				$ctrl.mouseUp = function (e) {
+					e.currentTarget.style.cursor = "grab"
+					mouseDown = false;
+				};
+
+				$ctrl.mouseLeave = function () {
+					mouseDown = false;
+				};
+
+				$ctrl.mouseMove = function (e) {
+					if (mouseDown) {
+							endX = e.clientX;
+							scrollCont.scrollLeft -= (endX - startX)*8.1;
+							startX = endX;
+					}
+				};
+
+				$ctrl.linkMove = function(e) {
+					if (mouseDown){
+						e.currentTarget.children[0].style.pointerEvents = 'none';
+						e.currentTarget.children[0].children[0].hoverTitle = true;
+					}
+				}
+
+				$ctrl.linkRestore = function(e) {
+					setTimeout(() => {					
+					e.currentTarget.children[0].style.pointerEvents = 'auto';
+					e.currentTarget.children[0].children[0].hoverTitle = false;
+					}, 200);
+				}
+
 
 			});
 
