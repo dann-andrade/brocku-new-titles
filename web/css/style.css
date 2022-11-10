@@ -70,13 +70,13 @@ h1, h2, h3, h4, h5, h6, p, input {
 }
 .bu-scrollbtn {
   padding: 0px;
-  background-color: rgba(0, 0, 0, 0.144);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   box-shadow: none;
   border: 0;
 }
 .bu-scrollbtn:hover {
-  background-color: rgba(41, 41, 41, 0.473);
+  background-color: rgba(41, 41, 41, 0.904);
 }
 .bu-scrollbtn:active {
   scale: 98%;
@@ -86,6 +86,19 @@ h1, h2, h3, h4, h5, h6, p, input {
 }
 .bu-nt-btn-img {
   height: 50px;
+}
+#bu-view {
+  padding: 30px 0 0 0;
+  position: absolute;
+  z-index: 1;
+  right: 10px;
+  border-radius: 0;
+  max-width: 80px;
+}
+#bu-view-btn {
+  color: white;
+  padding: 5px;
+  width: 100%;
 }
 
 /*Book Title Hover*/

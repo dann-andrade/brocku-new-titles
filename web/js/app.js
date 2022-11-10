@@ -137,6 +137,10 @@
 					}, 200);
 				}
 
+				$ctrl.viewAll = function() {
+					window.location.href = 'https://ocul-bu.primo.exlibrisgroup.com/discovery/search?query=any,contains,%3F%3F&tab=New_Titles&search_scope=New_Books&vid=01OCUL_BU:BU_DEFAULT&lang=en&offset=0';
+				}
+
 
 			});
 
