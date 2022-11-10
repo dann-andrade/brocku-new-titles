@@ -26,7 +26,7 @@
 				$ctrl.newbooks = [];
 				$ctrl.display = [];
 				$ctrl.dataLoaded = false;
-				$ctrl.showCarousel = true;
+				$ctrl.showDisplay = true;
 
 				// Retrieve daily data, load 20 books and calculate width
 				$http.get('http://rtod.library.brocku.ca:8080/data/gtitles.json').then(
@@ -58,7 +58,7 @@
 				function findWidth() {
 					screenWidth = document.body.offsetWidth;
 					scrollWidth = (screenWidth > 500) ? 500 : screenWidth;
-					$ctrl.showCarousel = (screenWidth >= 700) ? true : false;
+					$ctrl.showDisplay = (screenWidth >= 700) ? true : false;
 				};
 
 				// Adds space to inner carousel container to make room for new items
