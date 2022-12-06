@@ -41,7 +41,7 @@
                     ng-mouseleave="$ctrl.linkRestore($event); this.hoverTitle = false"
                     ng-mousemove="$ctrl.linkMove($event)"
                     ng-mouseup="$ctrl.linkRestore($event)">
-                        <a class="bu-book-link" href="https://ocul-bu.primo.exlibrisgroup.com/discovery//fulldisplay?docid=alma{{book.mmsid}}&context=L&vid=01OCUL_BU:BU_TEST_DAN&lang=en" draggable="false">  
+                        <a class="bu-book-link" href="https://ocul-bu.primo.exlibrisgroup.com/discovery//fulldisplay?docid=alma{{book.mmsid}}&context=L&vid=01OCUL_BU:BU_TEST_DAN&lang=en" draggable="false" target="_blank">  
                             <img class="bu-book-img" src="https://syndetics.com/index.php?client=primo&isbn={{book.isbn}}/mc.jpg" draggable="false"></img>
                         </a>
                         <span class="bu-book-title" ng-if="this.hoverTitle"> {{book.title}} </span>
