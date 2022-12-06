@@ -70,13 +70,13 @@ h1, h2, h3, h4, h5, h6, p, input {
 }
 .bu-scrollbtn {
   padding: 0px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.808);
   border-radius: 5px;
   box-shadow: none;
   border: 0;
 }
 .bu-scrollbtn:hover {
-  background-color: rgba(41, 41, 41, 0.904);
+  background-color: rgba(218, 0, 0, 0.938);
 }
 .bu-scrollbtn:active {
   scale: 98%;
