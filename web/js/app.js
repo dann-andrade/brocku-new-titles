@@ -82,6 +82,10 @@
 					scrollCont.scrollLeft += scrollWidth;
 				};
 
+				$ctrl.viewAll = function() {
+					window.location.href = 'https://ocul-bu.primo.exlibrisgroup.com/discovery/search?query=any,contains,%3F%3F&tab=New_Titles&search_scope=New_Books&vid=01OCUL_BU:BU_DEFAULT&lang=en&offset=0';
+				}
+
 				//Screen Resize Event
       	//Calls the find width function to update the width
 				addEventListener('resize', (Event) => {
@@ -89,59 +93,5 @@
 					$scope.$apply();
 				});
 
-				$ctrl.mouseDown = function (e) {
-					mouseDown = true;
-					startX = e.clientX;
-					e.currentTarget.style.cursor = "grabbing";
-					if (scrollCont.scrollLeft + screenWidth >= innerCar.offsetWidth - 2000) {
-						loadBooks(16);
-						setTimeout(() => {
-							setWidth(2000);
-							$scope.$apply();
-						}, 0);
-					};
-				};
-
-				$ctrl.mouseEnter = function(e) {
-					e.currentTarget.style.cursor = "grab"
-				};
-
-				$ctrl.mouseUp = function (e) {
-					e.currentTarget.style.cursor = "grab"
-					mouseDown = false;
-				};
-
-				$ctrl.mouseLeave = function () {
-					mouseDown = false;
-				};
-
-				$ctrl.mouseMove = function (e) {
-					if (mouseDown) {
-							endX = e.clientX;
-							scrollCont.scrollLeft -= (endX - startX)*8.1;
-							startX = endX;
-					}
-				};
-
-				$ctrl.linkMove = function(e) {
-					if (mouseDown){
-						e.currentTarget.children[0].style.pointerEvents = 'none';
-						e.currentTarget.children[0].children[0].hoverTitle = true;
-					}
-				}
-
-				$ctrl.linkRestore = function(e) {
-					setTimeout(() => {					
-					e.currentTarget.children[0].style.pointerEvents = 'auto';
-					e.currentTarget.children[0].children[0].hoverTitle = false;
-					}, 200);
-				}
-
-				$ctrl.viewAll = function() {
-					window.location.href = 'https://ocul-bu.primo.exlibrisgroup.com/discovery/search?query=any,contains,%3F%3F&tab=New_Titles&search_scope=New_Books&vid=01OCUL_BU:BU_DEFAULT&lang=en&offset=0';
-				}
-
-
 			});
-
 })();
