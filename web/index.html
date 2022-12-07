@@ -18,34 +18,18 @@
   </head>
   <body class="bg-secondary">
     <div ng-controller="MainController as $ctrl">
-      <div id="bu-new-titles" class="container-fluid" ng-show="$ctrl.showDisplay">
+      <div id="bu-new-titles" class="container-fluid" ng-show="$ctrl.showDisplay" aria-label="new books carousel">
         <div class="row">
     
             <div id="bu-scrollbtn-left" class="col d-flex align-items-center">
                 <button class="bu-scrollbtn" ng-click="$ctrl.scrollLeft()">
-                    <img class="bu-nt-btn-img " src="images/left.svg">
+                    <img class="bu-nt-btn-img " src="images/left.svg" alt="back">
                 </button>
             </div>
             
-            
-            <div id="bu-outer-carousel" class="col">
-                <div id="bu-inner-carousel">
-                    <div class="bu-book" 
-                    ng-repeat="book in $ctrl.display track by $index" 
-                    ng-mouseover="this.hoverTitle = true"
-                    ng-mouseleave="this.hoverTitle = false">
-                        <a class="bu-book-link" href="https://ocul-bu.primo.exlibrisgroup.com/discovery//fulldisplay?docid=alma{{book.mmsid}}&context=L&vid=01OCUL_BU:BU_TEST_DAN&lang=en" draggable="false" target="_blank">  
-                            <img class="bu-book-img" src="https://syndetics.com/index.php?client=primo&isbn={{book.isbn}}/mc.jpg" draggable="false"></img>
-                        </a>
-                        <span class="bu-book-title" ng-if="this.hoverTitle"> {{book.title}} </span>
-                    </div>
-                    
-                </div>
-            </div>
-    
             <div id="bu-scrollbtn-right" class="col d-flex align-items-center">
                 <button class="bu-scrollbtn" ng-click="$ctrl.scrollRight()">
-                    <img class="bu-nt-btn-img" src="images/right.svg">
+                    <img class="bu-nt-btn-img" src="images/right.svg" alt="forward">
                 </button>
             </div>
 
@@ -54,6 +38,26 @@
                     View All
                 </button>
             </div>
+            
+            <div id="bu-outer-carousel" class="col">
+                <div id="bu-inner-carousel">
+                    <div class="bu-book" 
+                    ng-repeat="book in $ctrl.display track by $index" 
+                    ng-mouseover="this.hoverTitle = true"
+                    ng-mouseleave="this.hoverTitle = false">
+                        <a class="bu-book-link" 
+                        ng-focus="this.hoverTitle = true"
+                        ng-blur="this.hoverTitle = false"
+                        href="https://ocul-bu.primo.exlibrisgroup.com/discovery//fulldisplay?docid=alma{{book.mmsid}}&context=L&vid=01OCUL_BU:BU_TEST_DAN&lang=en" draggable="false" target="_blank">  
+                            <img class="bu-book-img" src="https://syndetics.com/index.php?client=primo&isbn={{book.isbn}}/mc.jpg" draggable="false" alt="{{book.title}}"></img>
+                        </a>
+                        <span class="bu-book-title" ng-if="this.hoverTitle"> {{book.title}} </span>
+                    </div>
+                    
+                </div>
+            </div>
+    
+            
     
         </div>
     

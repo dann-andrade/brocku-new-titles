@@ -44,6 +44,9 @@ h1, h2, h3, h4, h5, h6, p, input {
   -ms-user-select: none; 
   user-select: none; 
 }
+.bu-book a:focus {
+  background: #CC0000;
+}
 .bu-book-img:hover {
   scale: 110%;
   rotate: 1deg;
@@ -70,19 +73,19 @@ h1, h2, h3, h4, h5, h6, p, input {
 }
 .bu-scrollbtn {
   padding: 0px;
-  background-color: rgba(0, 0, 0, 0.808);
+  background-color: rgba(0, 0, 0, 0.904);
   border-radius: 5px;
   box-shadow: none;
   border: 0;
 }
 .bu-scrollbtn:hover {
-  background-color: rgba(218, 0, 0, 0.938);
+  background-color: rgba(204, 0, 0, 0.904);
 }
 .bu-scrollbtn:active {
   scale: 98%;
 }
 .bu-scrollbtn:focus {
-  box-shadow: none;
+  background-color: rgba(204, 0, 0, 0.904);
 }
 .bu-nt-btn-img {
   height: 50px;
@@ -90,7 +93,7 @@ h1, h2, h3, h4, h5, h6, p, input {
 #bu-view {
   padding: 30px 0 0 0;
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   right: 10px;
   border-radius: 0;
   max-width: 80px;
