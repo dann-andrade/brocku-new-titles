@@ -86,6 +86,10 @@
 					window.location.href = 'https://ocul-bu.primo.exlibrisgroup.com/discovery/search?query=any,contains,%3F%3F&tab=New_Titles&search_scope=New_Books&vid=01OCUL_BU:BU_DEFAULT&lang=en&offset=0';
 				}
 
+				$ctrl.toStart = function() {
+					scrollCont.scrollLeft = 0;
+				}
+
 				//Screen Resize Event
       	//Calls the find width function to update the width
 				addEventListener('resize', (Event) => {

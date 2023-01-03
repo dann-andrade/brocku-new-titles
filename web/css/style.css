@@ -103,6 +103,19 @@ h1, h2, h3, h4, h5, h6, p, input {
   padding: 5px;
   width: 100%;
 }
+#bu-start {
+  padding: 30px 0 0 0;
+  position: absolute;
+  z-index: 2;
+  left: 10px;
+  border-radius: 0;
+  max-width: 80px;
+}
+#bu-start-btn {
+  color: white;
+  padding: 5px;
+  width: 100%;
+}
 
 /*Book Title Hover*/
 .bu-book-title {
