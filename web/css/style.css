@@ -74,7 +74,8 @@ h1, h2, h3, h4, h5, h6, p, input {
 .bu-scrollbtn {
   padding: 0px;
   background-color: rgba(0, 0, 0, 0.904);
-  border-radius: 5px;
+  transition: background-color .35s cubic-bezier(.35,0,.25,1);
+  border-radius: 2px;
   box-shadow: none;
   border: 0;
 }
@@ -91,11 +92,11 @@ h1, h2, h3, h4, h5, h6, p, input {
   height: 50px;
 }
 #bu-view {
-  padding: 30px 0 0 0;
+  margin: 25px 10px 0 0;
+  padding: 0px;
   position: absolute;
   z-index: 2;
-  right: 10px;
-  border-radius: 0;
+  right: 0px;
   max-width: 80px;
 }
 #bu-view-btn {
@@ -104,11 +105,11 @@ h1, h2, h3, h4, h5, h6, p, input {
   width: 100%;
 }
 #bu-start {
-  padding: 30px 0 0 0;
+  margin: 25px 0 0 10px;
+  padding: 0px;
   position: absolute;
   z-index: 2;
-  left: 10px;
-  border-radius: 0;
+  left: 0px;
   max-width: 80px;
 }
 #bu-start-btn {
