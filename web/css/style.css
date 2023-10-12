@@ -78,6 +78,9 @@ h1, h2, h3, h4, h5, h6, p, input {
   border-radius: 2px;
   box-shadow: none;
   border: 0;
+  width:fit-content;
+  font-family: Roboto,Helvetica Neue,sans-serif;
+  font-size:16px;
 }
 .bu-scrollbtn:hover {
   background-color: rgba(204, 0, 0, 0.904);
@@ -97,11 +100,11 @@ h1, h2, h3, h4, h5, h6, p, input {
   position: absolute;
   z-index: 2;
   right: 0px;
-  max-width: 80px;
+  max-width: fit-content;
 }
 #bu-view-btn {
   color: white;
-  padding: 5px;
+  padding: 5px 10px;
   width: 100%;
 }
 #bu-start {
@@ -110,11 +113,11 @@ h1, h2, h3, h4, h5, h6, p, input {
   position: absolute;
   z-index: 2;
   left: 0px;
-  max-width: 80px;
+  max-width: fit-content;
 }
 #bu-start-btn {
   color: white;
-  padding: 5px;
+  padding: 5px 15px;;
   width: 100%;
 }
 
@@ -122,18 +125,35 @@ h1, h2, h3, h4, h5, h6, p, input {
 .bu-book-title {
   position: absolute;
   display: inline-block;
-  background-color: rgb(41, 41, 41);
+  background-color: rgba(0, 0, 0, 0.904);
   color: white;
   padding: 5px 10px 5px 10px;
   left: 50%;
+  top: 0.5%;
   transform: translate(-50%, 0);
   width: fit-content;
-  top: 230px;
-  border-radius: 5px;
+  border-radius: 2px;
   -webkit-user-select: none;
   -ms-user-select: none; 
   user-select: none; 
 }
 
+/*Titles*/
+#title-bg {
+  position:absolute;
+  z-index: 5;
+  top: 200px;
+  left:46%;
+  background-color: rgba(0, 0, 0, 0.904);
+  border-radius: 2px;
+  padding: 0px 7px;
+  height: 35px;
+  width: fit-content;
+}
 
+#title {
+  font-size: 24px;
+  color: white;
+  font-family: Source Sans Pro,Trebuchet MS,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
 
